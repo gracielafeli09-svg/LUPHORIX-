@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Physicsxion - Science Magic Lab</title>
+  <style>
+    @keyframes smoke {
+      0% {opacity: 0; transform: translateY(0);}
+      100% {opacity: 1; transform: translateY(-20px);}
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('background-kelas.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px #6e44ff;
+    }
+    header p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .portal-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .portal-buttons a {
+      display: inline-block;
+      padding: 20px 40px;
+      background: linear-gradient(135deg, #6e44ff, #b892ff);
+      border-radius: 10px;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .portal-buttons a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #a892fe;
+    }
+    .smoke {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(white, transparent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: smoke 1s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧪 Kelas XI-B - Science Magic Lab</h1>
+    <p>Selamat datang di laboratorium ajaib kami! Jelajahi karya, kisah, dan tantangan seru dari para ilmuwan muda kelas kami.</p>
+    <div class="portal-buttons">
+      <a href="#tentang" onclick="addSmoke(this)">🧑‍🏫 Tentang Kami<div class='smoke'></div></a>
+      <a href="#karya" onclick="addSmoke(this)">🎨 Karya Siswa<div class='smoke'></div></a>
+      <a href="#quiz" onclick="addSmoke(this)">🧠 Quiz & Fakta Unik<div class='smoke'></div></a>
+    </div>
+  </header>
+
+  <script>
+    function addSmoke(element) {
+      const smoke = element.querySelector('.smoke');
+      smoke.style.opacity = '0';
+      smoke.style.animation = 'none';
+      void smoke.offsetWidth; // restart animation
+      smoke.style.animation = 'smoke 1s ease-out forwards';
+    }
+  </script>
+</body>
+</html>
